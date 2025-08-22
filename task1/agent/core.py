@@ -9,9 +9,9 @@ load_dotenv()
 
 class Agent:
     def __init__(self,
-                 model: str = 'gpt-4o-mini',
-                 temperature: float = 1.0,
-                 max_tokens: int = 4096,
+                 model: str = os.getenv("MODEL"),
+                 temperature: float = float(os.getenv("TEMP")),
+                 max_tokens: int = int(os.getenv("MAX_TOKEN")),
                  max_retry: int = 1,
                  tools: list = None):
         self.model = ChatOpenAI(

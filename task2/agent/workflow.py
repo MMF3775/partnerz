@@ -1,11 +1,11 @@
 from langgraph.graph import StateGraph, START, END
 from .state import State
 from .node import Node
-from langgraph.checkpoint.memory import MemorySaver
+from langgraph.checkpoint.memory import InMemorySaver
 
 class Workflow:
     graph_builder = StateGraph(State)
-    memory = MemorySaver()
+    memory = InMemorySaver()
 
     graph_builder.add_node("Bot", Node.bot)
     graph_builder.add_node("BotTool", Node.BotTools)

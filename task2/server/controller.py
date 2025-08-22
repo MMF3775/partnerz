@@ -5,11 +5,11 @@ class Controller:
 
     @staticmethod
     def invoke(session_id: int, message: str):
-        config = {"configurable": {"thread_id": (f"chat_{str(session_id)}")}}
+        config = {"configurable": {"thread_id": (f"user_{str(session_id)}")}}
         input_data = {
             "query": message,
         }
-        result = bot.graph.invoke(input_data, config=config)
+        result = bot.graph.invoke(input=input_data, config=config)
         return result.get("messages")[-1].content
 
     @staticmethod
